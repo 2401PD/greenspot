@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">GreenSpot</string>
+    <string name="plant_title_hint">Enter the name of the plant</string>
+    <string name="plant_title_label">Title</string>
+    <string name="plant_details_label">Details</string>
+    <string name="plant_solved_label">Plant found</string>
+    <string name="new_plant">New plant</string>
+    <string name="Share_with_contacts">Share with contacts</string>
+    <string name="plant_submit_text">Send plant report</string>
+    <string name="plant_submit">%1$s! The plant was discovered on %2$s. %3$s, and %4$s</string>
+    <string name="plant_report_verified">The plant find is verified</string>
+    <string name="plant_report_unverified">The plant find is not verified</string>
+    <string name="crime_report_no_shares">The plant report has not been shared</string>
+    <string name="plant_report_shared_to">the plant report has been shared with %s.</string>
+    <string name="plant_report">GreenSpot: Plant found</string>
+    <string name="send_report">Send plant report via</string>
+    <string name="plant_photo_image_description">Plant photo (set)</string>
+    <string name="plant_photo_button_description">Take photo of the plant</string>
+    <string name="plant_photo_no_image_description">Plant scene photo (not set)</string>
+    <string name="plant_name">Plant Name</string>
+    <string name="plant_date">Date Found</string>
+    <string name="plant_find">Found the plant</string>
+</resources>
