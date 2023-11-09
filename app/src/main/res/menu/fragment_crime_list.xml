@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/new_plant"
-        android:icon="@drawable/ic_menu_add"
+        android:icon="@drawable/ic_new_plant"
         android:title="@string/new_plant"
         app:showAsAction="ifRoom|withText" />
 

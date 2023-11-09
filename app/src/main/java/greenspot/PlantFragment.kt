@@ -143,7 +143,7 @@ class PlantFragment : Fragment(), DatePickerFragment.Callbacks {
         super.onStart()
         val titleWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // This space intentionally left blank
+
             }
 
             override fun onTextChanged(
@@ -156,7 +156,6 @@ class PlantFragment : Fragment(), DatePickerFragment.Callbacks {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                // This space intentionally left blank
             }
         }
 
@@ -242,18 +241,13 @@ class PlantFragment : Fragment(), DatePickerFragment.Callbacks {
             resultCode != Activity.RESULT_OK -> return
             requestCode == REQUEST_CONTACT && data != null -> {
                 val contactUri: Uri? = data.data
-                // Specify which fields you want your query to return values for
                 val queryFields = arrayOf(ContactsContract.Contacts.DISPLAY_NAME)
-                // Perform your query - the contactUri is like a "where" clause here
                 val cursor = requireActivity().contentResolver
                     .query(contactUri!!, queryFields, null, null, null)
                 cursor?.use {
-                    // Verify that the cursor contains at least one result
                     if (it.count == 0) {
                         return
                     }
-                    // Pull out the first column of the first row of data -
-                    // that is your suspect's name
                     it.moveToFirst()
                     val suspect = it.getString(0)
                     plant.suspect = suspect
