@@ -3,26 +3,26 @@ package greenspot
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.greenspot.R
-import java.util.*
+import java.util.UUID
 
-private const val TAG = "CrimeListFragment"
+private const val TAG = "PlantListFragment"
 
 class PlantListFragment : Fragment() {
-    /**
-     * Required interface for hosting activities
-     *
-     */
     interface Callbacks {
-        fun onCrimeSelected(crimeId: UUID);
+        fun onCrimeSelected(crimeId: UUID)
     }
 
     private var callbacks: Callbacks? = null
@@ -31,7 +31,7 @@ class PlantListFragment : Fragment() {
         ViewModelProviders.of(this).get(PlantListViewModel::class.java)
     }
 
-    private lateinit var crimeRecyclerView: RecyclerView;
+    private lateinit var crimeRecyclerView: RecyclerView
 
     private var adapter: CrimeAdapter? = CrimeAdapter(emptyList())
 
@@ -60,11 +60,11 @@ class PlantListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         plantListViewModel.crimeListLiveData.observe(
-            viewLifecycleOwner,
-            Observer { crimes ->
-                crimes?.let { Log.i(TAG, "Got crimes ${crimes.size}") }
-                updateUI(crimes)
-            })
+            viewLifecycleOwner
+        ) { crimes ->
+            crimes?.let { Log.i(TAG, "Got crimes ${crimes.size}") }
+            updateUI(crimes)
+        }
     }
 
     override fun onDetach() {
